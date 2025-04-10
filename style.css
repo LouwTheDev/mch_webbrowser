@@ -1,0 +1,147 @@
+/* === Futuristic Neon Gaming Style with Particles.js & Fade-in === */
+
+/* Orbitron font is already imported in your HTML via <link> or @import. */
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body base styling */
+  body {
+    font-family: 'Orbitron', Arial, sans-serif;
+    color: #fff;
+    min-height: 100vh;
+    position: relative;
+    background: #000; /* fallback background */
+    overflow: hidden; /* prevents scrollbars from weird offsets with the #particles-js behind */
+  }
+  
+  /* Particles container to cover entire background */
+  #particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2; /* behind all other elements */
+  }
+  
+  /* We'll keep your .animated-bg if you want both gif + particles overlay. 
+     If not, you can remove .animated-bg references. */
+  
+  /* optional: .animated-bg to blend with particles (if you keep it) */
+  /*
+  .animated-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('https://wallpaperaccess.com/full/3209230.gif') center/cover no-repeat;
+    z-index: -3;
+    filter: blur(4px) brightness(0.7);
+  }
+  */
+  
+  /* Header & Navbar */
+  header {
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 999; /* ensure nav is above the particles */
+  }
+  
+  .logo {
+    height: 60px;
+    margin-right: 1rem;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    position: relative;
+    transition: color 0.2s ease;
+  }
+  
+  nav a:hover {
+    color: #ff3c3c;
+    text-shadow: 0 0 5px #ff3c3c;
+  }
+  
+  /* Main Layout */
+  main {
+    padding: 2rem;
+    text-align: center;
+    z-index: 1; /* above particles */
+    position: relative;
+  }
+  
+  /* Fade-in transition on load */
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards ease-out;
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Headings & Sections */
+  h1, h2 {
+    margin-bottom: 1rem;
+    text-shadow: 0 0 8px #ff3c3c; /* neon-ish glow */
+  }
+  
+  /* List styling in center */
+  ul {
+    display: inline-block;
+    text-align: left;
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+  }
+  
+  /* Join button (neon hover) */
+  .join-button {
+    display: inline-block;
+    margin: 1rem 0;
+    padding: 0.75rem 2rem;
+    background-color: #ff3c3c;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s ease;
+    box-shadow: 0 0 12px rgba(255, 60, 60, 0.5);
+  }
+  
+  .join-button:hover {
+    background-color: #ff5959;
+    box-shadow: 0 0 20px #ff5959, 0 0 40px #ff5959; 
+    transform: scale(1.05);
+  }
+  
+  /* Footer styling */
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: rgba(0,0,0,0.5);
+    margin-top: 2rem;
+    position: relative;
+    z-index: 1; /* keep above particles */
+  }
+  
