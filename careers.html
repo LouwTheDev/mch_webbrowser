@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Careers – Memesense Config Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="particles-js"></div>
+
+  <header>
+    <img src="assets/logo.gif" alt="Memesense Logo" class="logo" />
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="join.html">Join</a></li>
+        <li><a href="premium.html">Premium</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="careers.html">Careers</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="fade-in">
+    <section class="career-section">
+      <h1>🚀 Join the Memesense Staff Team</h1>
+      <p>Apply below for open roles at Memesense Config Hub. If a position is available, you can submit an application directly.</p>
+
+      <div class="career-listing">
+        <div class="career-card available">
+          <h2>Marketing Team</h2>
+          <p>Help promote Memesense through social media, announcements, campaigns, and creative strategies. You will work closely with staff to attract new users, boost premium sales, and maintain our community image.</p>
+          <button onclick="openApplication('Marketing Team')">Apply</button>
+        </div>
+
+        <div class="career-card available">
+          <h2>Moderator</h2>
+          <p>Keep chat clean, manage rule enforcement, and mute or ban as needed.</p>
+          <button onclick="openApplication('Moderator')">Apply</button>
+        </div>
+
+        <div class="career-card unavailable">
+          <h2>Marketing Lead</h2>
+          <p>Create campaigns, announcements, and ideas to promote the brand.</p>
+          <span class="status-tag">Unavailable</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal for application form -->
+  <div id="apply-modal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Apply for <span id="role-title"></span></h2>
+      <form id="application-form">
+        <input type="hidden" id="role-input" name="role" />
+      
+        <input type="text" name="username" placeholder="What's your Discord Username? (e.g. user#0001)" required />
+        <input type="text" name="discord_id" placeholder="What's your Discord ID? (e.g. 123456789012345678)" required />
+        <input type="text" name="age" placeholder="How old are you?" required />
+        <textarea name="why" placeholder="Why do you want to apply for this position?" required></textarea>
+        <textarea name="experience" placeholder="Please provide your experience" required></textarea>
+      
+        <button type="submit">Submit Application</button>
+        <button type="button" onclick="closeApplication()">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Memesense Config Hub. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="particles-config.js"></script>
+  <script src="js/careers.js"></script>
+</body>
+</html>
