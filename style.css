@@ -218,3 +218,116 @@ body {
   ::-webkit-scrollbar-thumb:hover {
     background: #ff6666;
   }
+
+/* CAREER CARDS */
+.career-section {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .career-listing {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .career-card {
+    width: 280px;
+    background-color: rgba(0,0,0,0.6);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ff3c3c;
+    transition: transform 0.2s;
+  }
+  
+  .career-card h2 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .career-card.available button {
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    background-color: #ff3c3c;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .career-card.available button:hover {
+    background-color: #ff5c5c;
+    box-shadow: 0 0 10px #ff5c5c;
+  }
+  
+  .career-card.unavailable .status-tag {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.4rem 0.8rem;
+    background-color: #444;
+    border-radius: 5px;
+    color: #aaa;
+    font-weight: bold;
+  }
+  
+  /* MODAL */
+  .modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+  
+  .modal.hidden {
+    display: none;
+  }
+  
+  .modal-content {
+    background: #111;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #ff3c3c;
+    width: 90%;
+    max-width: 500px;
+  }
+  
+  .modal-content h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .modal-content input,
+  .modal-content textarea {
+    padding: 0.6rem;
+    border-radius: 6px;
+    border: none;
+    font-family: inherit;
+    background: #222;
+    color: #fff;
+  }
+  
+  .modal-content button {
+    padding: 0.7rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    background-color: #ff3c3c;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .modal-content button:hover {
+    background-color: #ff5c5c;
+  }  
