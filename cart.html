@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart – Memesense Config Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="join.html">Join</a>
+      <a href="premium.html">Premium</a>
+      <a href="store.html">Store</a>
+    </nav>
+  </header>
+
+  <section class="cart-section">
+    <h1 class="title">🛒 Your Cart</h1>
+    <div id="cart-items" class="cart-items"></div>
+    <div class="cart-summary">
+      <p><strong>Total:</strong> €<span id="cart-total">0.00</span></p>
+      <button id="checkout-btn">Proceed to Checkout</button>
+      <button onclick="clearCart()" class="clear-cart">Clear Cart</button>
+    </div>
+  </section>
+
+  <script>
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cartItemsDiv = document.getElementById("cart-items");
+    const cartTotalSpan = document.getElementById("cart-total");
+
+    let total = 0;
+    if (cart.length === 0) {
+      cartItemsDiv.innerHTML = "<p>Your cart is empty.</p>";
+    } else {
+      cartItemsDiv.innerHTML = cart.map(item => {
+        total += item.price;
+        return `
+          <div class="cart-item">
+            <h3>${item.name}</h3>
+            <p>${item.desc}</p>
+            <span>€${item.price.toFixed(2)}</span>
+          </div>
+        `;
+      }).join("");
+    }
+
+    cartTotalSpan.textContent = total.toFixed(2);
+
+    document.getElementById("checkout-btn").onclick = () => {
+      if (total === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
+      alert("Redirecting to PayPal...");
+      window.location.href = "https://www.paypal.com/paypalme/yourlink/" + total.toFixed(2);
+    };
+
+    function clearCart() {
+      localStorage.removeItem("cart");
+      location.reload();
+    }
+  </script>
+</body>
+</html>
