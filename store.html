@@ -26,6 +26,7 @@
         <p>Removes all traces and resets HWID. Safe & Undetected.</p>
         <span class="price">€20.00</span>
         <a class="buy-btn" href="https://www.paypal.com/paypalme/yourlink/20" target="_blank">Buy Now</a>
+        <button class="cart-btn" onclick="addToCart('CS - Cleaner', 'Removes all traces and resets HWID. Safe & Undetected.', 20.00)">Add to Cart</button>
       </div>
 
       <div class="product">
@@ -33,11 +34,20 @@
         <p>Improves trust factor, reduces risk of shadowbans or unfair matches.</p>
         <span class="price">€16.99</span>
         <a class="buy-btn" href="https://www.paypal.com/paypalme/yourlink/16.99" target="_blank">Buy Now</a>
+        <button class="cart-btn" onclick="addToCart('CS - Trust Factor Greener', 'Improves trust factor, reduces risk of shadowbans or unfair matches.', 16.99)">Add to Cart</button>
       </div>
     </div>
   </section>
 
   <a href="cart.html" class="cart-float" title="View Cart">🛒</a>
 
+  <script>
+    function addToCart(name, desc, price) {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push({ name, desc, price });
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(name + " added to cart!");
+    }
+  </script>
 </body>
 </html>
