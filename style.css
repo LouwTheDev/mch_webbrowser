@@ -1,190 +1,361 @@
-/* Base */
+/* === Memesense Complete Neon Style === */
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* BODY - Base Font & Background */
+  body {
+    /* If using Orbitron, link it in HTML head, e.g.:
+       <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet" />
+    */
+    font-family: 'Orbitron', Arial, sans-serif;
+    color: #fff;
+    min-height: 100vh;
+    position: relative;
+    background: #000; /* Fallback solid black */
+    overflow: hidden; /* Helps with any hidden backgrounds or particles */
+  }
+  
+  /* PARTICLES CONTAINER - behind content */
+  #particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2; /* Behind other elements */
+  }
+  
+  /* OPTIONAL: ANIMATED GIF BG
+     (If you want a GIF behind the particles, uncomment and ensure .animated-bg is present in HTML.)
+  */
+  /*
+  .animated-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('https://wallpaperaccess.com/full/3209230.gif') center/cover no-repeat;
+    z-index: -3;
+    filter: blur(4px) brightness(0.7);
+  }
+  */
+  
+  /* HEADER & NAV */
+  header {
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 999; /* keep the header above particles */
+  }
+  
+  .logo {
+    height: 60px;
+    margin-right: 1rem;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    position: relative;
+    transition: color 0.2s ease;
+  }
+  
+  nav a:hover {
+    color: #ff3c3c;
+    text-shadow: 0 0 5px #ff3c3c;
+  }
+  
+  /* MAIN LAYOUT */
+  main {
+    padding: 2rem;
+    text-align: center;
+    z-index: 1; /* above particles */
+    position: relative;
+  }
+  
+  /* FADE-IN TRANSITION on load */
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards ease-out;
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* HEADINGS & TEXT SHADOW */
+  h1, h2 {
+    margin-bottom: 1rem;
+    text-shadow: 0 0 8px #ff3c3c; /* neon glow */
+  }
+  
+  /* GENERAL UL (center if needed) */
+  ul {
+    display: inline-block;
+    text-align: left;
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+  }
+  
+  /* BUTTONS - JOIN, BUY, etc. */
+  .join-button {
+    display: inline-block;
+    margin: 1rem 0;
+    padding: 0.75rem 2rem;
+    background-color: #ff3c3c;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s ease;
+    box-shadow: 0 0 12px rgba(255, 60, 60, 0.5);
+  }
+  
+  .join-button:hover {
+    background-color: #ff5959;
+    box-shadow: 0 0 20px #ff5959, 0 0 40px #ff5959; 
+    transform: scale(1.05);
+  }
+  
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: rgba(0,0,0,0.5);
+    margin-top: 2rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* TEAM PAGE: CARDS LAYOUT */
+  .team-section {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .team-section p {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .team-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .team-card {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    padding: 1.5rem;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 0 10px #ff3c3c;
+    transition: transform 0.2s ease;
+  }
+  
+  .team-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .team-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 5px #ff3c3c;
+  }
+  
+  .team-card h2 {
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 8px #ff3c3c;
+  }
+  
+  .team-card p {
+    margin: 0.5rem 0;
+    line-height: 1.4;
+  }
+
+/* Force a scrollbar and make the page scrollable */
 body {
-  margin: 0;
-  font-family: 'Orbitron', sans-serif;
-  background-color: #0a0a0a;
-  color: white;
-  background-image: radial-gradient(#ff0000 0.5px, #0a0a0a 0.5px);
-  background-size: 20px 20px;
-  background-repeat: repeat;
-  overflow-x: hidden;
-}
+    /* Existing styles here (font, background, etc.) */
+    overflow-y: scroll;     /* Always shows a scrollbar on the right */
+    overflow-x: hidden;     /* Prevent horizontal scrolling */
+  }
+  
+  /* OPTIONAL: Neon-themed custom scrollbar for WebKit browsers */
+  ::-webkit-scrollbar {
+    width: 10px;
+    background: #111;       /* Scrollbar track color */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #ff3c3c;    /* Scrollbar thumb color */
+    border-radius: 5px;
+    border: 2px solid #111; /* Creates a border effect around the thumb */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ff6666;
+  }
 
-/* Headers */
-h1, h2 {
-  text-align: center;
-  color: #ff2a2a;
-  text-shadow: 0 0 10px red;
-}
+/* CAREER CARDS */
+.career-section {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .career-listing {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .career-card {
+    width: 280px;
+    background-color: rgba(0,0,0,0.6);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ff3c3c;
+    transition: transform 0.2s;
+  }
+  
+  .career-card h2 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .career-card.available button {
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    background-color: #ff3c3c;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .career-card.available button:hover {
+    background-color: #ff5c5c;
+    box-shadow: 0 0 10px #ff5c5c;
+  }
+  
+  .career-card.unavailable .status-tag {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.4rem 0.8rem;
+    background-color: #444;
+    border-radius: 5px;
+    color: #aaa;
+    font-weight: bold;
+  }
+  
+  /* MODAL */
+  .modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+  }
+  
+  .modal.hidden {
+    display: none;
+  }
+  
+  .modal-content {
+    background: #111;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #ff3c3c;
+    width: 90%;
+    max-width: 500px;
+  }
+  
+  .modal-content h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .modal-content input,
+  .modal-content textarea {
+    padding: 0.6rem;
+    border-radius: 6px;
+    border: none;
+    font-family: inherit;
+    background: #222;
+    color: #fff;
+  }
+  
+  .modal-content button {
+    padding: 0.7rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    background-color: #ff3c3c;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .modal-content button:hover {
+    background-color: #ff5c5c;
+  }  
 
-/* Navigation */
-nav {
-  display: flex;
-  align-items: center;
-  background-color: #0a0a0a;
-  border-bottom: 2px solid red;
-  padding: 10px 40px;
-  justify-content: space-between;
-}
-
-nav img {
-  width: 50px;
-  height: 50px;
-}
-
-.nav-links {
-  display: flex;
-  gap: 30px;
-}
-
-.nav-links a {
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.nav-links a:hover {
-  color: #ff2a2a;
-  text-shadow: 0 0 8px red;
-}
-
-/* Product cards */
-.product-grid {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  padding: 60px 20px;
-  flex-wrap: wrap;
-}
-
-.product {
-  background-color: #1a1a1a;
-  border: 2px solid #ff2a2a;
-  border-radius: 12px;
-  padding: 25px;
-  width: 260px;
-  text-align: center;
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
-  transition: transform 0.2s;
-}
-
-.product:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 25px red;
-}
-
-.product h3 {
-  margin-bottom: 10px;
-  color: white;
-}
-
-.product p {
-  font-size: 14px;
-  color: #ccc;
-}
-
-.product .price {
-  font-size: 16px;
-  color: #ff5555;
-  margin: 8px 0;
-}
-
-.product button {
-  margin: 5px;
-  padding: 10px 15px;
-  background-color: #ff2a2a;
-  border: none;
-  color: white;
-  font-weight: bold;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.2s ease-in-out;
-}
-
-.product button:hover {
-  background-color: #cc0000;
-  box-shadow: 0 0 8px red;
-}
-
-/* Cart Button */
-.cart-float {
+.discord-float {
   position: fixed;
-  bottom: 25px;
-  right: 25px;
+  bottom: 20px;
+  right: 20px;
   width: 55px;
   height: 55px;
-  background-color: #ff2a2a;
+  background-color: #0a0a0a;
+  border: 2px solid red;
   border-radius: 50%;
   display: flex;
-  justify-content: center;
   align-items: center;
-  box-shadow: 0 0 20px red;
-  cursor: pointer;
-  transition: 0.3s;
-  z-index: 999;
+  justify-content: center;
+  z-index: 9999;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 0 10px red, 0 0 20px red inset;
 }
 
-.cart-float:hover {
-  background-color: #cc0000;
+.discord-icon {
+  width: 28px;
+  height: 28px;
+  color: red;
 }
 
-/* Cart Page */
-.cart-container {
-  max-width: 700px;
-  margin: 60px auto;
-  padding: 20px;
-  background-color: #1a1a1a;
-  border: 2px solid red;
-  border-radius: 12px;
-  text-align: center;
-}
-
-.cart-item {
-  margin-bottom: 20px;
-  border-bottom: 1px solid #333;
-  padding-bottom: 10px;
-}
-
-.cart-item h3 {
-  color: white;
-}
-
-.cart-item p {
-  color: #bbb;
-}
-
-.cart-total {
-  margin-top: 30px;
-  font-size: 18px;
-  color: #ff5555;
-  font-weight: bold;
-}
-
-.cart-btn {
-  margin: 10px;
-  padding: 12px 20px;
-  background-color: #ff2a2a;
-  border: none;
-  border-radius: 6px;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.cart-btn:hover {
-  background-color: #cc0000;
-  box-shadow: 0 0 8px red;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  margin-top: 80px;
-  padding: 15px;
-  background-color: #0a0a0a;
-  border-top: 2px solid red;
-  color: #aaa;
-  font-size: 14px;
+.discord-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px red, 0 0 25px red inset;
 }
