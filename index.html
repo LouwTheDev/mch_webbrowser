@@ -66,18 +66,20 @@
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="particles-config.js"></script> <!-- We'll create this next -->
 
-    <!-- Crisp Live Chat -->
-  <script type="text/javascript">
-    window.$crisp = [];
-    window.CRISP_WEBSITE_ID = "209e3bf4-7f9f-4dc7-bc22-050f63e898b8";
-    (function () {
-      d = document;
-      s = d.createElement("script");
-      s.src = "https://client.crisp.chat/l.js";
-      s.async = 1;
-      d.getElementsByTagName("head")[0].appendChild(s);
-    })();
-  </script>
+<script type="text/javascript">
+  window.$crisp = [];
+  window.CRISP_WEBSITE_ID = "209e3bf4-7f9f-4dc7-bc22-050f63e898b8";
+  window.CRISP_RUNTIME_CONFIG = {
+    position: "left"
+  };
+  (function () {
+    d = document;
+    s = d.createElement("script");
+    s.src = "https://client.crisp.chat/l.js";
+    s.async = 1;
+    d.getElementsByTagName("head")[0].appendChild(s);
+  })();
+</script>
 </body>
 
 </body>
